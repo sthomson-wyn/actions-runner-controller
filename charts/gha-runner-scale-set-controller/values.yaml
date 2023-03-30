@@ -10,7 +10,7 @@ replicaCount: 1
 
 image:
   repository: "ghcr.io/actions/gha-runner-scale-set-controller"
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
@@ -72,3 +72,9 @@ flags:
   # Restricts the controller to only watch resources in the desired namespace.
   # Defaults to watch all namespaces when unset.
   # watchSingleNamespace: ""
+
+metrics:
+  serviceMonitor: false
+  serviceMonitorNamespace: ""
+  serviceMonitorLabels:
+    release: "prometheus"
